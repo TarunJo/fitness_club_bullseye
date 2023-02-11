@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import './App.css';
-import TableRows from "./Table.jsx"
 
 function App() {
 
@@ -14,27 +13,22 @@ function App() {
   function store(e) {
     e.preventDefault();
     data.push({
-      Name: name,
-      Email: email,
-      Phone: phone,
-      Address: address
+      "Name": name,
+      "Email": email,
+      "Phone": phone,
+      "Address": address
     });
-    console.log(data);
+    // console.log(data);
     alert("Entry Recorded!");
   }
 
-  const [rowsData, setRowsData] = useState([]);
-
   function Members(e) {
     e.preventDefault();
-    for (let i = 0; i < data.length; i++) {
-        setRowsData([...rowsData, data[i]])
-    }
-    
+
     setStat(false);
   }
 
-  function Back(e){
+  function Back(e) {
     e.preventDefault();
     setStat(true);
   }
@@ -61,16 +55,29 @@ function App() {
       <div className="App">
         <div id="container">
           <p id="Heading">Member List</p>
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone number</th>
-                <th>Address</th>
-              </tr>
-            </thead>
-          </table>
+            <table id="myTable">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone number</th>
+                  <th>Address</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  data.map((dat) => 
+                      <tr>
+                        <td>{dat.Name}</td>
+                        <td>{dat.Email}</td>
+                        <td>{dat.Phone}</td>
+                        <td>{dat.Address}</td>
+                      </tr>
+                    
+                  )
+                }
+              </tbody>
+            </table>
         </div>
         <input type="submit" id="showData" value="Back TO Home" onClick={Back}></input>
       </div>
