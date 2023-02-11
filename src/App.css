@@ -11,12 +11,15 @@
 }
 
 form {
+  border: 2px solid black;
+  border-radius: 15px;
   background-color: white;
   display: flex;
   flex-direction: column;
   width: 20vw;
   margin-top: 2%;
   margin-left: 35%;
+  
   /* padding-top: 10%; */
   padding: 2% 5% 4% 5%;
 }
@@ -50,7 +53,7 @@ th {
   background-color: blue;
   color: white; 
   border: 1px solid blue;
-  border-radius: 10px;;
+  border-radius: 6px;
 }
 
 .App {
@@ -62,4 +65,17 @@ th {
 
 tr{
   background-color:white;
+}
+
+#showData:hover, #submit:hover {
+  background-color: aqua;
+  border-color: aqua;
+  color: rgb(73, 43, 43);
+}
+
+#showData:active, #submit:active {
+  transform: scale(90%);
+  background-color: green;
+  color: white; 
+  border: 1px solid green;
 }
